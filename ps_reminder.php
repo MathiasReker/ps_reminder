@@ -282,15 +282,19 @@ class Ps_Reminder extends Module
                 switch ($line['id_email_type']) {
                     case 1:
                         $id_list['1'][] = $line['id_cart'];
+
                         break;
                     case 2:
                         $id_list['2'][] = $line['id_cart'];
+
                         break;
                     case 3:
                         $id_list['3'][] = $line['id_customer'];
+
                         break;
                     case 4:
                         $id_list['4'][] = $line['id_customer'];
+
                         break;
                 }
             }
