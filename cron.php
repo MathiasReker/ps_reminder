@@ -29,7 +29,7 @@ include(dirname(__FILE__) . '/ps_reminder.php');
 
 if (Tools::getIsset('secure_key')) {
     $secure_key = Configuration::get('PS_FOLLOWUP_SECURE_KEY');
-    if (!empty($secure_key) && Tools::getValue('secure_key') === $secure_key) {
+    if ( ! empty($secure_key) && Tools::getValue('secure_key') === $secure_key) {
         $followup = new Ps_Reminder();
         if ($followup->active) {
             $followup->cronTask();

@@ -24,7 +24,7 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
-if (!defined('_PS_VERSION_')) {
+if ( ! defined('_PS_VERSION_')) {
     exit;
 }
 
@@ -161,10 +161,10 @@ class Ps_Reminder extends Module
             'id_cart_rule' => (int)$id_cart_rule,
             'date_add' => date('Y-m-d H:i:s')
         ];
-        if (!empty($id_cart)) {
+        if ( ! empty($id_cart)) {
             $values['id_cart'] = (int)$id_cart;
         }
-        if (!empty($id_customer)) {
+        if ( ! empty($id_customer)) {
             $values['id_customer'] = (int)$id_customer;
         }
         Db::getInstance()->insert('log_email', $values);
@@ -192,7 +192,7 @@ class Ps_Reminder extends Module
 
         $sql .= Shop::addSqlRestriction(Shop::SHARE_CUSTOMER, 'c');
 
-        if (!empty($email_logs)) {
+        if ( ! empty($email_logs)) {
             $sql .= ' AND c.id_cart NOT IN ('.join(',', $email_logs).')';
         }
 
@@ -200,7 +200,7 @@ class Ps_Reminder extends Module
 
         $emails = Db::getInstance()->executeS($sql);
 
-        if ($count || !count($emails)) {
+        if ($count || ! count($emails)) {
             return count($emails);
         }
 
@@ -267,7 +267,7 @@ class Ps_Reminder extends Module
         ];
         static $executed = false;
 
-        if (!$executed) {
+        if ( ! $executed) {
             $query = '
 			SELECT id_cart,
 			       id_customer,
@@ -325,13 +325,13 @@ class Ps_Reminder extends Module
 
         $sql .= Shop::addSqlRestriction(Shop::SHARE_CUSTOMER, 'o');
 
-        if (!empty($email_logs)) {
+        if ( ! empty($email_logs)) {
             $sql .= ' AND o.id_cart NOT IN ('.join(',', $email_logs).')';
         }
 
         $emails = Db::getInstance()->executeS($sql);
 
-        if ($count || !count($emails)) {
+        if ($count || ! count($emails)) {
             return count($emails);
         }
 
@@ -414,7 +414,7 @@ class Ps_Reminder extends Module
 
         $sql .= Shop::addSqlRestriction(Shop::SHARE_CUSTOMER, 'o');
 
-        if (!empty($email_logs)) {
+        if ( ! empty($email_logs)) {
             $sql .= ' AND cu.id_customer NOT IN ('.join(',', $email_logs).') ';
         }
 
@@ -423,7 +423,7 @@ class Ps_Reminder extends Module
 
         $emails = Db::getInstance()->executeS($sql);
 
-        if ($count || !count($emails)) {
+        if ($count || ! count($emails)) {
             return count($emails);
         }
 
@@ -521,7 +521,7 @@ class Ps_Reminder extends Module
 
         $sql .= Shop::addSqlRestriction(Shop::SHARE_CUSTOMER, 'cu');
 
-        if (!empty($email_logs)) {
+        if ( ! empty($email_logs)) {
             $sql .= ' AND cu.id_customer NOT IN ('.join(',', $email_logs).') ';
         }
 
@@ -529,7 +529,7 @@ class Ps_Reminder extends Module
 
         $emails = Db::getInstance()->executeS($sql);
 
-        if ($count || !count($emails)) {
+        if ($count || ! count($emails)) {
             return count($emails);
         }
 
@@ -617,7 +617,7 @@ class Ps_Reminder extends Module
             );
         $cart_rule->code = $code;
         $cart_rule->active = 1;
-        if (!$cart_rule->add()) {
+        if ( ! $cart_rule->add()) {
             return false;
         }
 
