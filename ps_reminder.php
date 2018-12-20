@@ -701,7 +701,7 @@ class Ps_Reminder extends Module
             $rates = [];
             for ($i = 1; $i != 5; ++$i) {
                 if (isset($stats_array[$date_stat][$i]['nb'], $stats_array[$date_stat][$i]['nb_used'])
-                     
+
                     && 0 < $stats_array[$date_stat][$i]['nb_used']) {
                     $rates[$i] = number_format(
                         ($stats_array[$date_stat][$i]['nb_used']
