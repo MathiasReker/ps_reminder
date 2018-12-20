@@ -55,7 +55,7 @@ class Ps_Reminder extends Module
             'PS_FOLLOW_UP_DAYS_4',
             'PS_FOLLOW_UP_THRESHOLD_3',
             'PS_FOLLOW_UP_DAYS_THRESHOLD_4',
-            'PS_FOLLOW_UP_CLEAN_DB'
+            'PS_FOLLOW_UP_CLEAN_DB',
         ];
 
         $this->bootstrap = true;
@@ -158,7 +158,7 @@ class Ps_Reminder extends Module
         $values = [
             'id_email_type' => (int) $id_email_type,
             'id_cart_rule' => (int) $id_cart_rule,
-            'date_add' => date('Y-m-d H:i:s')
+            'date_add' => date('Y-m-d H:i:s'),
         ];
         if ( ! empty($id_cart)) {
             $values['id_cart'] = (int) $id_cart;
@@ -205,7 +205,7 @@ class Ps_Reminder extends Module
 
         $conf = Configuration::getMultiple([
             'PS_FOLLOW_UP_AMOUNT_1',
-            'PS_FOLLOW_UP_DAYS_1'
+            'PS_FOLLOW_UP_DAYS_1',
         ]);
         foreach ($emails as $email) {
             $voucher = $this->createDiscount(
@@ -228,7 +228,7 @@ class Ps_Reminder extends Module
                     '{firstname}' => $email['firstname'],
                     '{amount}' => $conf['PS_FOLLOW_UP_AMOUNT_1'],
                     '{days}' => $conf['PS_FOLLOW_UP_DAYS_1'],
-                    '{voucher_num}' => $voucher->code
+                    '{voucher_num}' => $voucher->code,
                 ];
                 Mail::Send(
                     (int) $email['id_lang'],
@@ -340,7 +340,7 @@ class Ps_Reminder extends Module
 
         $conf = Configuration::getMultiple([
             'PS_FOLLOW_UP_AMOUNT_2',
-            'PS_FOLLOW_UP_DAYS_2'
+            'PS_FOLLOW_UP_DAYS_2',
         ]);
         foreach ($emails as $email) {
             $voucher = $this->createDiscount(
@@ -364,7 +364,7 @@ class Ps_Reminder extends Module
                     '{firstname}' => $email['firstname'],
                     '{amount}' => $conf['PS_FOLLOW_UP_AMOUNT_2'],
                     '{days}' => $conf['PS_FOLLOW_UP_DAYS_2'],
-                    '{voucher_num}' => $voucher->code
+                    '{voucher_num}' => $voucher->code,
                 ];
                 Mail::Send(
                     (int) $email['id_lang'],
@@ -432,7 +432,7 @@ class Ps_Reminder extends Module
 
         $conf = Configuration::getMultiple([
             'PS_FOLLOW_UP_AMOUNT_3',
-            'PS_FOLLOW_UP_DAYS_3'
+            'PS_FOLLOW_UP_DAYS_3',
         ]);
         foreach ($emails as $email) {
             $voucher = $this->createDiscount(
@@ -456,7 +456,7 @@ class Ps_Reminder extends Module
                     '{firstname}' => $email['firstname'],
                     '{amount}' => $conf['PS_FOLLOW_UP_AMOUNT_3'],
                     '{days}' => $conf['PS_FOLLOW_UP_DAYS_3'],
-                    '{voucher_num}' => $voucher->code
+                    '{voucher_num}' => $voucher->code,
                 ];
                 Mail::Send(
                     (int) $email['id_lang'],
@@ -538,7 +538,7 @@ class Ps_Reminder extends Module
 
         $conf = Configuration::getMultiple([
             'PS_FOLLOW_UP_AMOUNT_4',
-            'PS_FOLLOW_UP_DAYS_4'
+            'PS_FOLLOW_UP_DAYS_4',
         ]);
         foreach ($emails as $email) {
             $voucher = $this->createDiscount(
@@ -635,7 +635,7 @@ class Ps_Reminder extends Module
             'PS_FOLLOW_UP_ENABLE_2',
             'PS_FOLLOW_UP_ENABLE_3',
             'PS_FOLLOW_UP_ENABLE_4',
-            'PS_FOLLOW_UP_CLEAN_DB'
+            'PS_FOLLOW_UP_CLEAN_DB',
         ]);
 
         if ($conf['PS_FOLLOW_UP_ENABLE_1']) {
@@ -771,7 +771,7 @@ class Ps_Reminder extends Module
                         [],
                         'Modules.Reminder.Admin'
                     ) . '<br />' . $cron_info,
-            ]
+            ],
         ];
 
         $fields_form_2 = [
@@ -1238,7 +1238,7 @@ class Ps_Reminder extends Module
         $helper->tpl_vars = [
             'fields_value' => $this->getConfigFieldsValues(),
             'languages' => $this->context->controller->getLanguages(),
-            'id_language' => $this->context->language->id
+            'id_language' => $this->context->language->id,
         ];
 
         return $helper->generateForm([
@@ -1247,7 +1247,7 @@ class Ps_Reminder extends Module
             $fields_form_3,
             $fields_form_4,
             $fields_form_5,
-            $fields_form_6
+            $fields_form_6,
         ]);
     }
 
